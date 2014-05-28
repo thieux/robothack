@@ -35,4 +35,12 @@ public class Block {
     public void setCorrupted(boolean corrupted) {
         this.corrupted = corrupted;
     }
+
+    public void hack() {
+        if (!isEmpty()) {
+            this.empty = true;
+        } else {
+            this.corrupted = true;
+        }
+    }
 }
