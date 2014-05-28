@@ -37,10 +37,9 @@ public class MoveSteps {
     @When("^I move forward$")
     public void moveForward() throws Throwable {
         Location destination = location.forward();
-        try {
-            sectorRef.getSector().getBlock(destination);
+        if (sectorRef.getSector().isValidLocation(destination)) {
             location = destination;
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } else {
             program.crash();
         }
     }
@@ -58,6 +57,6 @@ public class MoveSteps {
 
     @And("^a simple program$")
     public void a_simple_program() throws Throwable {
-       program = new Program();
+        program = new Program();
     }
 }
