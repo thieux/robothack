@@ -1,5 +1,8 @@
 package org.technbolts;
 
+/**
+ * Zero-indexed 2D coordinates of a point on a sector.
+ */
 public class Location {
     private final int x;
     private final int y;

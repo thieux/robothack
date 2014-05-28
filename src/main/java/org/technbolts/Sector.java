@@ -41,7 +41,7 @@ public class Sector {
     }
 
     public Block getBlock(int x, int y) {
-        return blocks[x - 1][y - 1];
+        return blocks[x][y];
     }
 
     public Block getBlock(Location location) {
@@ -49,8 +49,8 @@ public class Sector {
     }
 
     public boolean isValidLocation(Location location) {
-        boolean xInBounds = location.getX() > 0 && location.getX() <= blocks.length;
-        boolean yInBounds = location.getY() > 0 && location.getY() <= blocks[0].length;
+        boolean xInBounds = location.getX() >= 0 && location.getX() < blocks.length;
+        boolean yInBounds = location.getY() >= 0 && location.getY() < blocks[0].length; // FIXME: assumes square sector; or heuristic that assumes the first column is the longest one
         return xInBounds && yInBounds && getBlock(location) != null;
     }
 }

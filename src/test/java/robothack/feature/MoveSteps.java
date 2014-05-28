@@ -25,7 +25,7 @@ public class MoveSteps {
 
     @Given("^my location is \\((\\d+),(\\d+)\\), headed (\\w+)$")
     public void setLocation(int x, int y, String direction) {
-        location = new Location(x, y, Direction.valueOf(direction.toUpperCase()));
+        location = new Location(x - 1, y - 1, Direction.valueOf(direction.toUpperCase()));
     }
 
     @When("^I move forward$")
@@ -40,8 +40,8 @@ public class MoveSteps {
 
     @Then("^my location should be \\((\\d+),(\\d+)\\)$")
     public void locationShouldBe(int x, int y) {
-        assertEquals(x, location.getX());
-        assertEquals(y, location.getY());
+        assertEquals(x - 1, location.getX());
+        assertEquals(y - 1, location.getY());
     }
 
     @Then("^the program should crash$")
