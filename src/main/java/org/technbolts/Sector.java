@@ -9,7 +9,6 @@ public class Sector {
     List<Document> documents = new ArrayList<Document>();
     private boolean won;
 
-
     public void declareDocument(Document document) {
         documents.add(document);
     }
@@ -21,7 +20,6 @@ public class Sector {
         } else {
             throw new ProgramExecutionError("No more document to hack");
         }
-
     }
 
     public boolean isWon() {
