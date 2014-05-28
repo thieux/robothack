@@ -24,7 +24,9 @@ public class SimpleSectorSteps {
 
     @Then("^the block at \\((\\d+),(\\d+)\\) should be empty and not corrupted$")
     public void blockShouldBeEmptyAndNotCorrupted(int x, int y) {
-        Block block = sectorRef.getSector().getBlock(x - 1, y - 1);
+        Block block = sectorRef.getSector().getBlock(
+                CoordinateBaseChange.convertCoordinateToInternal(x),
+                CoordinateBaseChange.convertCoordinateToInternal(y));
         assertTrue(block.isEmpty());
         assertFalse(block.isCorrupted());
     }
