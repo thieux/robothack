@@ -47,4 +47,10 @@ public class Sector {
     public Block getBlock(Location location) {
         return getBlock(location.getX(), location.getY());
     }
+
+    public boolean isValidLocation(Location location) {
+        boolean xInBounds = location.getX() > 0 && location.getX() <= blocks.length;
+        boolean yInBounds = location.getY() > 0 && location.getY() <= blocks[0].length;
+        return xInBounds && yInBounds && getBlock(location) != null;
+    }
 }
