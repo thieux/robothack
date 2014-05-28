@@ -8,9 +8,9 @@ package org.technbolts;
  * To change this template use File | Settings | File Templates.
  */
 public class Location {
-    int x;
-    int y;
-    Direction direction;
+    private final int x;
+    private final int y;
+    private final Direction direction;
 
     public Location(int x, int y, Direction direction) {
         this.x = x;
@@ -45,4 +45,5 @@ public class Location {
     public int getY() {
         return y;
     }
+
 }

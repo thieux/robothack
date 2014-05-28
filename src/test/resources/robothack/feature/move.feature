@@ -10,19 +10,21 @@ Feature: Move
 #  +---+---+
 #  |   |   | 2
 #  +---+---+
+
+  Background:
+    Given a very simple 2x2 sector
+
   @dev
   Scenario: Move south to a valid cell
 
-    Given a very simple 2x2 sector
-    And my location is (1,1), headed south
+    Given my location is (1,1), headed south
     When I move forward
-    Then my location is (1,2)
+    Then my location should be (1,2)
 
-  @acceptance-tests
+  @dev
   Scenario Outline: Move any direction to a valid cell
 
-    Given the very simple 2x2 sector
-    And my location is <location>, headed <direction>
+    Given  my location is <location>, headed <direction>
     When I move forward
     Then my location should be <destination>
 
@@ -32,3 +34,11 @@ Feature: Move
     | (1,2)    | north     | (1,1)       |
     | (1,1)    | east      | (2,1)       |
     | (2,2)    | west      | (1,2)       |
+
+  @dev
+  Scenario: Moving to an invalid cell
+
+    Given  my location is (1,1), headed north
+    And a simple program
+    When I move forward
+    Then the program should crash

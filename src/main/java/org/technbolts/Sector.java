@@ -43,4 +43,8 @@ public class Sector {
     public Block getBlock(int x, int y) {
         return blocks[x - 1][y - 1];
     }
+
+    public Block getBlock(Location location) {
+        return getBlock(location.getX(), location.getY());
+    }
 }

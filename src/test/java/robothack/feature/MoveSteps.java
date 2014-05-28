@@ -1,5 +1,6 @@
 package robothack.feature;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -8,6 +9,7 @@ import org.technbolts.Location;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * User: Christophe
@@ -17,22 +19,45 @@ import static org.junit.Assert.assertThat;
  */
 public class MoveSteps {
 
+    private SectorRef sectorRef;
+
     private Location location;
 
-    @Given("^my location is \\((\\d+),(\\d+)\\), headed (\\w+)$")
-    public void my_location_is_headed_west(int x, int y, String direction) throws Throwable {
-        location = new Location(x, y, Direction.valueOf(direction.toUpperCase()));
+    private Program program;
 
+    public MoveSteps(SectorRef sectorRef) {
+        this.sectorRef = sectorRef;
+    }
+
+    @Given("^my location is \\((\\d+),(\\d+)\\), headed (\\w+)$")
+    public void setLocation(int x, int y, String direction) throws Throwable {
+        location = new Location(x, y, Direction.valueOf(direction.toUpperCase()));
     }
 
     @When("^I move forward$")
-    public void I_move_forward() throws Throwable {
-        location = location.forward();
+    public void moveForward() throws Throwable {
+        Location destination = location.forward();
+        try {
+            sectorRef.getSector().getBlock(destination);
+            location = destination;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            program.crash();
+        }
     }
 
-    @Then("^my location is \\((\\d+),(\\d+)\\)$")
-    public void my_location_is_(int x, int y) throws Throwable {
+    @Then("^my location should be \\((\\d+),(\\d+)\\)$")
+    public void locationShouldBe(int x, int y) throws Throwable {
         assertEquals(x, location.getX());
         assertEquals(y, location.getY());
+    }
+
+    @Then("^the program should crash$")
+    public void checkTheProgramHasCrashed() throws Throwable {
+        assertTrue(program.hasCrashed());
+    }
+
+    @And("^a simple program$")
+    public void a_simple_program() throws Throwable {
+       program = new Program();
     }
 }
