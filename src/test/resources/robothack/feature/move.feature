@@ -10,10 +10,10 @@ Feature: Move
 #  +---+---+
 #  |   |   | 2
 #  +---+---+
-
+  @dev
   Scenario: Move south to a valid cell
 
-    Given the very simple 2x2 sector
+    Given a very simple 2x2 sector
     And my location is (1,1), headed south
     When I move forward
     Then my location is (1,2)
