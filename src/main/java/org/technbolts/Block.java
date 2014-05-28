@@ -1,12 +1,5 @@
 package org.technbolts;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Christophe
- * Date: 28/05/14
- * Time: 14:17
- * To change this template use File | Settings | File Templates.
- */
 public class Block {
     private boolean empty;
     private boolean corrupted;
