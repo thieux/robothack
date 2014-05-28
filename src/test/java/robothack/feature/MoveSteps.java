@@ -8,15 +8,8 @@ import org.technbolts.Direction;
 import org.technbolts.Location;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-/**
- * User: Christophe
- * Date: 28/05/14
- * Time: 14:40
- * To change this template use File | Settings | File Templates.
- */
 public class MoveSteps {
 
     private SectorRef sectorRef;
@@ -30,12 +23,12 @@ public class MoveSteps {
     }
 
     @Given("^my location is \\((\\d+),(\\d+)\\), headed (\\w+)$")
-    public void setLocation(int x, int y, String direction) throws Throwable {
+    public void setLocation(int x, int y, String direction) {
         location = new Location(x, y, Direction.valueOf(direction.toUpperCase()));
     }
 
     @When("^I move forward$")
-    public void moveForward() throws Throwable {
+    public void moveForward() {
         Location destination = location.forward();
         if (sectorRef.getSector().isValidLocation(destination)) {
             location = destination;
@@ -45,18 +38,18 @@ public class MoveSteps {
     }
 
     @Then("^my location should be \\((\\d+),(\\d+)\\)$")
-    public void locationShouldBe(int x, int y) throws Throwable {
+    public void locationShouldBe(int x, int y) {
         assertEquals(x, location.getX());
         assertEquals(y, location.getY());
     }
 
     @Then("^the program should crash$")
-    public void checkTheProgramHasCrashed() throws Throwable {
+    public void programShouldHaveCrashed() {
         assertTrue(program.hasCrashed());
     }
 
     @And("^a simple program$")
-    public void a_simple_program() throws Throwable {
+    public void simpleProgram() {
         program = new Program();
     }
 }

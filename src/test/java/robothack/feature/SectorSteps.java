@@ -15,7 +15,7 @@ public class SectorSteps {
     private Block block;
 
     @Given("^a Sector with (\\d+) documents$")
-    public void createNewSector(int documentCount) throws Throwable {
+    public void createNewSector(int documentCount) {
         sector = new Sector();
         for (int i = 0; i < documentCount; ++i) {
             sector.declareDocument(new org.technbolts.Document());
@@ -23,45 +23,45 @@ public class SectorSteps {
     }
 
     @When("^I hack (\\d+) document$")
-    public void hackDocuments(int documentCount) throws Throwable {
+    public void hackDocuments(int documentCount) {
         for (int i = 0; i < documentCount; ++i) {
             sector.hackDocument();
         }
     }
 
     @Then("^the Sector should not be won$")
-    public void sectorIsNotWon() throws Throwable {
+    public void sectorIsNotWon() {
         assertFalse(sector.isWon());
     }
 
     @Then("^the Sector should be won$")
-    public void sectorIsWon() throws Throwable {
+    public void sectorIsWon() {
         assertTrue(sector.isWon());
     }
 
     @Given("^a block with a document$")
-    public void a_block_with_a_document() throws Throwable {
+    public void blockWithDocument() {
         block = new Block(false, false);
     }
 
     @Given("^a block without a document$")
-    public void a_block_without_a_document() throws Throwable {
+    public void blockWithoutDocument() {
         block = new Block(true, false);
     }
 
     @When("^I hack$")
-    public void I_hack() throws Throwable {
+    public void hack() {
         block.hack();
     }
 
-    @Then("^the block has no document$")
-    public void the_block_has_no_document() throws Throwable {
+    @Then("^the block should have no document$")
+    public void blockShouldHaveNoDocument() {
         assertTrue(block.isEmpty());
     }
 
 
-    @Then("^the block is corrupted$")
-    public void the_block_is_corrupted() throws Throwable {
+    @Then("^the block should be corrupted$")
+    public void blockShouldBeCorrupted() {
         assertTrue(block.isCorrupted());
     }
 }
