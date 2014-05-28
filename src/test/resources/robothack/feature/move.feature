@@ -12,7 +12,7 @@ Feature: Move
 #  +---+---+
 
   Background:
-    Given a very simple 2x2 sector
+    Given a 2 block square side sector
 
   @dev
   Scenario: Move south to a valid cell

@@ -17,6 +17,11 @@ public class SimpleSectorSteps {
         this.sectorRef = sectorRef;
     }
 
+    @Given("^a (\\d+) block square side sector$")
+    public void createSquareSector(int length) {
+        sectorRef.setSector(new Sector(length, length));
+    }
+
     @Given("^a very simple (\\d+)x(\\d+) sector$")
     public void createSimpleSector(int width, int height) {
         sectorRef.setSector(new Sector(width, height));

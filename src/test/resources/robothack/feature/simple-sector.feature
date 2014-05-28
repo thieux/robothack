@@ -6,12 +6,12 @@ Feature: Simple Sector definition
 
   Scenario: Very simple sector
 
-    Given a very simple 2x2 sector
+    Given a 2 block square side sector
     Then the block at (1,1) should be empty and not corrupted
 
   Scenario Outline: Very simple sector
 
-    Given a very simple 2x2 sector
+    Given a 2 block square side sector
     Then the block at (<x>,<y>) should be empty and not corrupted
 
   Examples:
