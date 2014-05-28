@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public class Sector {
 
-    List<Document> documents = new ArrayList<Document>();
+    private List<Document> documents = new ArrayList<Document>();
     private boolean won;
     private final Block[][] blocks;
 
