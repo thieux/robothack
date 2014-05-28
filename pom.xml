@@ -143,6 +143,13 @@
             <version>1.5.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+        	<groupId>com.nethack</groupId>
+        	<artifactId>cia</artifactId>
+        	<version>0</version>
+        	<scope>system</scope>
+        	<systemPath>${project.build.directory}/../lib/nethack-cia-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
