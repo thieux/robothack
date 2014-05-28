@@ -1,4 +1,4 @@
-package robothack.feature;
+package robothack.feature.core;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

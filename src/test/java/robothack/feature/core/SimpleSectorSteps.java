@@ -1,9 +1,11 @@
-package robothack.feature;
+package robothack.feature.core;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.technbolts.Block;
 import org.technbolts.Sector;
+import robothack.feature.scenarioparser.CoordinateBaseChange;
+import robothack.feature.SectorRef;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

@@ -1,4 +1,4 @@
-package robothack.feature;
+package robothack.feature.core;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -7,6 +7,8 @@ import cucumber.api.java.en.When;
 import org.technbolts.Direction;
 import org.technbolts.Location;
 import org.technbolts.Program;
+import robothack.feature.scenarioparser.CoordinateBaseChange;
+import robothack.feature.SectorRef;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
