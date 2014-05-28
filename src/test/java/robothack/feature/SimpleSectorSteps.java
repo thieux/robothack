@@ -1,4 +1,4 @@
-package org.technbolts;
+package robothack.feature;
 
 public class SimpleSectorSteps {
 
